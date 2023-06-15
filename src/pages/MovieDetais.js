@@ -20,12 +20,13 @@ const MovieDeteils = () => {
       <Link to={backLinckLocationsRef.current}>Back</Link>
       <div>Movie Details: {movieId}</div>
       <ul>
+      <li>
+          <Link to="cast">Cast</Link>
+        </li>
         <li>
           <Link to="reviews">Reviews</Link>
         </li>
-        <li>
-          <Link to="credits">Credits</Link>
-        </li>
+        
       </ul>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />

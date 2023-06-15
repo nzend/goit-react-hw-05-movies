@@ -1,30 +1,20 @@
 import css from './ImageGalleryItem.module.css';
-import Modal from '../Modal/Modal';
-import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 
-const ImageGalleryItem = ({ item }) => {
-  const [isModalShow, setIsModalShow] = useState(false);
- 
-  const onModal = () => {
-    setIsModalShow(isModalShow => (isModalShow = !isModalShow));
-  };
-  
+const ImageGalleryItem = ({ movie }) => {
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const movieId = searchParams.get('movieId') ?? '';
+  const location = useLocation();
   return (
-    <li className={css.gallery__item}>
-      <img
-        onClick={onModal}
-        className={css.gallery__item__image}
-        src={item.webformatURL}
-        alt="img"
-      />
-     
-      {isModalShow && (
-        <Modal onCloseModal={onModal}>
-          <img src={item.largeImageURL} alt="" />
-        </Modal>
-      )}
-    </li>
+    <>
+      <li key={movie} className={css.gallery__item}>
+        <Link to={`${movie}`} state={{ from: location }}>
+          {movie}
+        </Link>
+      </li>
+    </>
   );
 };
 
