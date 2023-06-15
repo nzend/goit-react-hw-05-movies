@@ -11,7 +11,7 @@ const ImageGalleryItem = ({ movie }) => {
   return (
     <>
       <li key={movie} className={css.gallery__item}>
-        <Link to={`${movie}`} state={{ from: location }}>
+        <Link to={`${movie.id}`} state={{ from: location }}>
           {movie.title}
         </Link>
       </li>

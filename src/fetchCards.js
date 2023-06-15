@@ -34,4 +34,40 @@ export async function getBySearch(query, page) {
     .catch(error => console.log(error));
 }
 
+export async function getCastInfo(movie_id) {
+  const url = `${MAIN_URL}/movie/${movie_id}/credits?api_key=${API_KEY}`;
+  return await axios
+    .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+export async function getReviewsInfo(movie_id) {
+  const url = `${MAIN_URL}/movie/${movie_id}/reviews?api_key=${API_KEY}`;
+  return await axios
+    .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+export async function getInfoMovie(movie_id) {
+  const url = `${MAIN_URL}/movie/${movie_id}?api_key=${API_KEY}`;
+  return await axios
+    .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
 export default getWeekTrending;

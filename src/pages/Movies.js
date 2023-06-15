@@ -22,20 +22,22 @@ const Movies = () => {
   // __________________________Use Params_____________________________
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const movieId = searchParams.get('movieId') ?? '';
-  const location = useLocation();
+  console.log("SEARCH PARAMS",searchParams);
+  const query = searchParams.get('query') ?? '';
+  console.log(query);
+  
   // _______________________________Use Effect__________
   useEffect(() => {
     const getByQuery = async () => {
       try {
-        const response = await getBySearch(searchQuery, page);
-        const weekTranding = response.results;
+        const response = await getBySearch(query, page);
+        const searchMovies = response.results;
 
-        if (weekTranding.length === 0) {
-          return setError(`No results were found for ${searchQuery}!`);
+        if (searchMovies.length === 0) {
+          return setError(`No results were found for ${query}!`);
         }
 
-        setMovies(prevItems => [...prevItems, ...weekTranding]);
+        setMovies(prevItems => [...prevItems, ...searchMovies]);
       } catch (error) {
         setError('Something went wrong. Try again.');
       } finally {
@@ -43,7 +45,7 @@ const Movies = () => {
       }
     };
     getByQuery();
-  }, [searchQuery, page]);
+  }, [query, page]);
 
   // ___________________________ State config ____________
   const handleSubmit = newQuery => {
@@ -60,6 +62,7 @@ const Movies = () => {
     setMovies([]);
     setError(null);
     setIsLoading(true);
+    setSearchParams({query: newQuery})
   };
   const onNextPage = () => {
     setIsLoading(true);
