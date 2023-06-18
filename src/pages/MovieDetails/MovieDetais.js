@@ -1,17 +1,20 @@
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { useRef, Suspense, useEffect, useState } from 'react';
 
-import { getInfoMovie } from '../fetchCards';
+import { getInfoMovie } from '../../fetchCards';
 
-import MovieCard from "../components/MovieCard/MovieCard";
+import MovieCard from '../../components/MovieCard/MovieCard';
 
 const MovieDeteils = () => {
   const [movieInfo, setMovieInfo] = useState({});
 
+  const location = useLocation();
   const { movieId } = useParams();
+
+  const backLinkHref = useRef(location.state?.from ?? '/');
+
   useEffect(() => {
-    if (!movieId) return;
-    if (!movieInfo) {
+    if (movieInfo === {}) {
       return;
     }
     const getInfo = async () => {
@@ -24,27 +27,13 @@ const MovieDeteils = () => {
       }
     };
     getInfo();
-  }, []);
+  }, [movieId]);
 
-  const genres = movieInfo.genres;
-  console.log(genres);
-  // ganres.map(g => console.log(g));
-
-  const location = useLocation();
-  // console.log(location);
-  const backLinckLocationsRef = useRef(location.state?.from ?? '/movies');
-  // console.log(backLinckLocationsRef);
-
-  //   console.log(movieId);
-
-  // useEffect(() => {
-  //     // Reqest
-  // }, [])
   return (
     <>
-      <Link to={backLinckLocationsRef.current}>Back</Link>
-      <MovieCard movieInfo={movieInfo} ></MovieCard>
-      
+      <Link to={backLinkHref.current}>Back</Link>
+      <MovieCard movieInfo={movieInfo}></MovieCard>
+
       <ul>
         <li>
           <Link to="cast">Cast</Link>

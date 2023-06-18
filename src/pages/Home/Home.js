@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import getWeekTrending from '../fetchCards';
-import { Link } from 'react-router-dom';
+import { getWeekTrending } from '../../fetchCards';
+import { Link, useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [trandingMovie, setTrandingMovie] = useState([]);
+
+  const location = useLocation();
 
   useEffect(() => {
     const getTranding = async () => {
@@ -18,7 +20,6 @@ const Home = () => {
     };
     getTranding();
   }, []);
-  // console.log(trandingMovie);
 
   return (
     <>
@@ -27,7 +28,9 @@ const Home = () => {
         {trandingMovie.map(trandMovie => {
           return (
             <li key={trandMovie.id}>
-              <Link to={`movies/${trandMovie.id}`}>{trandMovie.title ?? trandMovie.name}</Link>
+              <Link state={{ from: location }} to={`/movies/${trandMovie.id}`}>
+                {trandMovie.title ?? trandMovie.name}
+              </Link>
             </li>
           );
         })}

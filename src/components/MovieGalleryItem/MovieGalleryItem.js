@@ -1,12 +1,9 @@
-import css from './ImageGalleryItem.module.css';
+import css from './MovieGalleryItem.module.css';
 import { Link, useLocation } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
 const ImageGalleryItem = ({ movie }) => {
-  console.log(movie);
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const movieId = searchParams.get('movieId') ?? '';
   const location = useLocation();
   return (
     <>

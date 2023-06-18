@@ -5,8 +5,8 @@ import { getReviewsInfo } from '../../fetchCards';
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
-  console.log(getReviewsInfo(movieId));
-  // console.log("Movie ID",movieId);
+
+
 
   useEffect(() => {
     if (!movieId) return;
@@ -22,7 +22,7 @@ const Reviews = () => {
     };
     getReviews();
   }, [movieId]);
-  console.log(reviews);
+  
 
   
   return (
@@ -30,7 +30,7 @@ const Reviews = () => {
       It is Reviews! {movieId}
       <ul>
         {reviews.map(review => {
-          console.log(review);
+         
           return (
             <li key={review.id}>
               <span>Author: {review.author}</span>

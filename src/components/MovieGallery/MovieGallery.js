@@ -1,7 +1,7 @@
-import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
-import css from './ImageGallery.module.css';
+import ImageGalleryItem from '../MovieGalleryItem/MovieGalleryItem';
+import css from './MovieGallery.module.css';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
 
 function ImageGallery({ movies }) {
   return (

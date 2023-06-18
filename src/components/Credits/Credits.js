@@ -22,15 +22,15 @@ const Credits = () => {
     };
     getCast();
   }, []);
-  console.log('Movie ID', movieId);
-  // console.log(movieId);
+  
+ 
 
   return (
     <div>
       It is Cast! {movieId}
       <ul>
         {cast.map(actor => {
-          console.log(actor);
+        
           return (
             <li key={actor.id}>
               <img
