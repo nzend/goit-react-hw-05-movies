@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviewsInfo } from '../../fetchCards';
+import css from './Reviews.module.css';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
-
-
 
   useEffect(() => {
     if (!movieId) return;
@@ -22,19 +21,17 @@ const Reviews = () => {
     };
     getReviews();
   }, [movieId]);
-  
 
-  
   return (
-    <div>
-      It is Reviews! {movieId}
+    <div className={css.reviews}>
       <ul>
         {reviews.map(review => {
-         
           return (
-            <li key={review.id}>
-              <span>Author: {review.author}</span>
-              <p>{review.content}</p>
+            <li className={css.reviews__item} key={review.id}>
+              <span className={css.reviews__author}>
+                Author: <span className={css.author__name}>{review.author}</span>
+              </span>
+              <p className={css.reviews__content}>{review.content}</p>
             </li>
           );
         })}

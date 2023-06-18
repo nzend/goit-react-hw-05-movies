@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getWeekTrending } from '../../fetchCards';
 import { Link, useLocation } from 'react-router-dom';
+import css from './Home.module.css';
 
 const Home = () => {
   const [trandingMovie, setTrandingMovie] = useState([]);
@@ -23,12 +24,16 @@ const Home = () => {
 
   return (
     <>
-      <h1>Trending today</h1>
-      <ul>
+      <h1 className={css.tranding__title}>Trending today</h1>
+      <ul className={css.tranding__list}>
         {trandingMovie.map(trandMovie => {
           return (
-            <li key={trandMovie.id}>
-              <Link state={{ from: location }} to={`/movies/${trandMovie.id}`}>
+            <li className={css.tranding__item} key={trandMovie.id}>
+              <Link
+                className={css.tranding__link}
+                state={{ from: location }}
+                to={`/movies/${trandMovie.id}`}
+              >
                 {trandMovie.title ?? trandMovie.name}
               </Link>
             </li>

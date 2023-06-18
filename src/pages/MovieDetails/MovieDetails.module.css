@@ -1,0 +1,28 @@
+.back__btn {
+  color: #fff;
+  transition: color 0.25s;
+}
+.back__btn:hover {
+  color: orange;
+}
+.config__list {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+.navigation__link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.config__link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.config__item:nth-last-child(1) {
+  margin-left: 12px;
+}
+.config__link:hover, 
+.config__link:focus {
+  transition: color 0.25s;
+  color: #f87719;
+}

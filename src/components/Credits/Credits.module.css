@@ -1,0 +1,21 @@
+.cast__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cast__item {
+  text-align: center ;
+}
+
+.actor__name {
+  color: wheat;
+}
+.cast__character {
+  color: white;
+}
+.actor__role {
+  margin-left: 6px;
+}

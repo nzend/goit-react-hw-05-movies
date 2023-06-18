@@ -1,0 +1,22 @@
+.tranding__title {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #fff;
+  text-transform: uppercase;
+}
+.tranding__list {
+  margin: 12px auto;
+}
+.tranding__link {
+  font-weight: 500;
+  font-size: 24px;
+  color: #ccc;
+  text-decoration: none;
+}
+.tranding__link:hover,
+.tranding__link:focus {
+  transition: color 0.25s;
+  color: #f87719;
+}

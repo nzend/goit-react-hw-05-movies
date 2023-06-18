@@ -1,0 +1,17 @@
+.reviews {
+    text-align: center;
+}
+.reviews__item {
+    margin-bottom: 24px;
+}
+.reviews__author {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+}
+.author__name {
+    color: orangered;
+}
+.reviews__content {
+    color: #b19191;
+}

@@ -1,0 +1,33 @@
+.container {
+  width: 1200px;
+  padding: 0 32px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+nav {
+ background-color: #171717;
+ margin-bottom: 14px;
+ 
+}
+.navigation {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+.navigation__item {
+  padding: 10px;
+}
+.navigation__link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.navigation__link:hover, 
+.navigation__link:focus {
+  transition: color 0.25s;
+  color: #f87719;
+}
+.navigation__item:nth-last-child(1) {
+  margin-left: 12px;
+}
+

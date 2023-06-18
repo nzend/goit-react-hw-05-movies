@@ -5,6 +5,8 @@ import { getInfoMovie } from '../../fetchCards';
 
 import MovieCard from '../../components/MovieCard/MovieCard';
 
+import css from './MovieDetails.module.css';
+
 const MovieDeteils = () => {
   const [movieInfo, setMovieInfo] = useState({});
 
@@ -27,19 +29,25 @@ const MovieDeteils = () => {
       }
     };
     getInfo();
-  }, [movieId]);
+  }, [movieInfo, movieId]);
 
   return (
     <>
-      <Link to={backLinkHref.current}>Back</Link>
+      <Link className={css.back__btn} to={backLinkHref.current}>
+        Back
+      </Link>
       <MovieCard movieInfo={movieInfo}></MovieCard>
 
-      <ul>
-        <li>
-          <Link to="cast">Cast</Link>
+      <ul className={css.config__list}>
+        <li className={css.config__item}>
+          <Link className={css.config__link} to="cast">
+            Cast
+          </Link>
         </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
+        <li className={css.config__item}>
+          <Link className={css.config__link} to="reviews">
+            Reviews
+          </Link>
         </li>
       </ul>
       <Suspense fallback={<div>Loading...</div>}>

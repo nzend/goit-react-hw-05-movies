@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastInfo } from '../../fetchCards';
 import notAvailablePhoto from '../../Images/photo-not-available.jpg';
-
+import css from './Credits.module.css';
 const Credits = () => {
   const [cast, setCast] = useState([]);
 
@@ -21,19 +21,16 @@ const Credits = () => {
       }
     };
     getCast();
-  }, []);
-  
- 
+  }, [movieId]);
 
   return (
-    <div>
-      It is Cast! {movieId}
-      <ul>
+    <div className={css.cast__container}>
+      <ul className={css.cast__list}>
         {cast.map(actor => {
-        
           return (
-            <li key={actor.id}>
+            <li className={css.cast__item} key={actor.id}>
               <img
+                className={css.cast__img}
                 src={
                   actor.profile_path
                     ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
@@ -41,9 +38,10 @@ const Credits = () => {
                 }
                 alt="img"
               />
-              <h3>{actor.name}</h3>
-              <p>
-                <span>Character:</span> {actor.character}
+              <h3 className={css.actor__name}>{actor.name}</h3>
+              <p className={css.cast__character}>
+                Character: 
+                <span className={css.actor__role}>{actor.character}</span>
               </p>
             </li>
           );

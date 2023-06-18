@@ -1,0 +1,34 @@
+.card {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  margin: 12px 32px;
+}
+.card__info {
+  width: 480px;
+
+  text-align: center;
+}
+.card__title {
+  color: white;
+  margin-bottom: 12px;
+}
+.card__score {
+  color: orange;
+  margin-bottom: 12px;
+}
+.score {
+  color: orangered;
+}
+.card__overview {
+  color: #b19191;
+  margin-bottom: 18px;
+}
+.card__genres {
+  display: flex;
+  justify-content: center;
+}
+.card__genres__item {
+  margin-left: 12px;
+  color: orangered;
+}
