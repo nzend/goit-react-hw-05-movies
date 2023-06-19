@@ -16,9 +16,6 @@ const MovieDeteils = () => {
   const backLinkHref = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
-    if (movieInfo === {}) {
-      return;
-    }
     const getInfo = async () => {
       try {
         const response = await getInfoMovie(movieId);
@@ -29,7 +26,7 @@ const MovieDeteils = () => {
       }
     };
     getInfo();
-  }, [movieInfo, movieId]);
+  }, [movieId]);
 
   return (
     <>
